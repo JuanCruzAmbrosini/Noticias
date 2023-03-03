@@ -1,0 +1,172 @@
+html, body{
+
+    height: 100%;
+    margin: 0;
+
+}
+
+body{
+
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100%;
+
+}
+
+.encabezado{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 5px solid#ffcf00;
+    background-color: #FFFFFF;
+    flex-shrink: 1;
+    margin-bottom: 50px;
+    max-width: 100%;
+    min-width: 100%;
+
+}
+
+.imagen_encabezado{
+
+    margin-left: 5px;
+    scale: 75%;
+
+}
+
+.nav_encabezado{
+
+    display: flex;
+
+}
+
+.nav_encabezado_elementos{
+
+    padding: 10px;
+    margin: 5px;
+    margin-right: 15px;
+    color: #9799A6;
+    background-color: #FFF;
+    text-decoration: none;
+    transition: .5s;
+    display: block;
+
+    border: 1px solid #555555;
+    border-radius: 10px;
+
+}
+
+.nav_encabezado_elementos:hover{
+
+    background-color: #ffcf00;
+    color: #37474f;
+    border-color: #37474f;
+
+}
+
+.contenido_principal{
+
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+    width: 100%;
+
+}
+
+.mensaje_sin_noticias{
+
+    padding: 20px;
+    font-size: 25px;
+    background-color: #ffcf00;
+    color: #37474f;
+    border-radius: 10px;
+
+}
+
+.tabla{
+
+    background-color: white;
+    border-radius: 10px;
+    width: 80%;
+
+}
+
+.fila_tabla_encabezado , .fila_tabla_cuerpo{
+
+
+    text-align: center;
+    width: 100%;
+
+
+}
+
+
+.elemento_tabla_cuerpo, .elemento_tabla_encabezado{
+
+    padding: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+    vertical-align: middle;
+}
+
+.elemento_tabla_cuerpo{
+
+    justify-content: center;
+
+}
+
+.boton_eliminar_tabla_cuerpo , .boton_modificar_tabla_cuerpo{
+
+    border-radius: 5px;
+    color: white;
+    padding: 7px;
+    text-decoration: none;
+    border: 0ch;
+
+}
+
+.thumbnail{
+
+    width: 35%;
+
+}
+
+.boton_eliminar_tabla_cuerpo{
+
+    background-color: red;
+
+}
+
+.boton_modificar_tabla_cuerpo{
+
+    background-color: green;
+
+}
+
+footer{
+
+    margin-top: 50px;
+    height: 75px;
+    min-height: 75px;
+    background-color: #ffcf00;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+}
+
+.texto_footer{
+
+    text-align: center;
+    color: #37474f;
+    font-size: x-large;
+
+}

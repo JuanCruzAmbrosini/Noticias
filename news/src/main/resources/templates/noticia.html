@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <link rel="Stylesheet" href="/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="/css/NoticiaStyle.css" type="text/css" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Egg news</title>
+</head>
+
+<body>
+
+    <header class="encabezado">
+
+        <div class="imagen_encabezado">
+
+            <a href="/">
+                <img src="/img/download.png" alt="Logo De Egg">
+            </a>
+
+        </div>
+
+        <nav class="nav_encabezado">
+
+            <a class="nav_encabezado_elementos" href="/noticia/lista_noticias">Noticias</a>
+            <a class="nav_encabezado_elementos" href="/noticia/registrar">Agregar una noticia</a>
+
+        </nav>
+
+    </header>
+
+    <div class="principal">
+
+        <h2 class="titulo" th:text="${noticia.titulo}"></h2>
+        
+        <img class="imagen_noticia" th:src="@{'/img/'+${noticia.imagen}}" alt="Imagen Noticia">
+
+        <p class="cuerpo_noticia" id="cuerpo" th:text="${noticia.cuerpo}" ></p>
+
+    </div>
+
+    <footer>
+
+        <p class="texto_footer">¡Gracias por usar nuestros servicios!</p>
+
+    </footer>
+
+</body>
+
+</html>
+
+<script>
+    const textElement = document.getElementById("cuerpo");
+    const text = textElement.textContent;
+    const lines = text.split("\n");
+  
+    let paragraphs = [];
+    let currentParagraph = "";
+  
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+  
+      if (line === "" && currentParagraph !== "") {
+        paragraphs.push(currentParagraph);
+        currentParagraph = "";
+      } else {
+        currentParagraph += line + " ";
+      }
+    }
+  
+    if (currentParagraph !== "") {
+      paragraphs.push(currentParagraph);
+    }
+  
+    console.log(paragraphs);
+  </script>

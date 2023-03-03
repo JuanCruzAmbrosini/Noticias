@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <link rel="Stylesheet" href="/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="/css/Style.css" type="text/css" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Egg news</title>
+</head>
+
+<body>
+
+    <header class="encabezado">
+
+        <div class="imagen_encabezado">
+
+            <a href="/">
+                <img src="/img/download.png" alt="Logo De Egg">
+            </a>
+
+        </div>
+
+        <nav class="nav_encabezado">
+
+            <a class="nav_encabezado_elementos" href="/noticia/lista_noticias">Noticias</a>
+            <a class="nav_encabezado_elementos" href="/noticia/registrar">Agregar una noticia</a>
+
+        </nav>
+
+    </header>
+
+    <main class="principal">
+
+        <section class="mensaje_sin_noticias" th:if="${vacio != null}">
+
+            <p th:text="${vacio}"></p>
+
+        </section>
+
+        <div th:if="${vacio == null}" class="contenedor_general">
+            <h2 class="subtitulo">Últimas noticias:</h2>
+
+            <section class="contenedor_noticias">
+
+                <div class="noticia" th:each="noticia, iterStat : ${noticias}" th:if="${iterStat.index lt 3}">
+
+                    <h3 class="noticia_titulo">
+
+                        <a th:href="@{/noticia/__${noticia.id}__}" th:text="${noticia.titulo}" th:value="${noticia.id}"
+                            class="link"></a>
+
+                    </h3>
+
+                    <a th:href="@{/noticia/__${noticia.id}__}" class="link">
+
+                        <img class="noticia_imagen" th:src="@{/img/} + ${noticia.imagen}" alt="Imagen de la noticia.">
+
+                    </a>
+
+                    <p class="noticia_cuerpo"> <a th:href="@{/noticia/__${noticia.id}__}" th:value="${noticia.id}"
+                            th:text="${noticia.cuerpo}" class="link"></a> </p>
+
+                </div>
+
+            </section>
+        </div>
+
+    </main>
+
+    <footer>
+
+        <p class="texto_footer">¡Gracias por usar nuestros servicios!</p>
+
+    </footer>
+
+</body>
+
+</html>

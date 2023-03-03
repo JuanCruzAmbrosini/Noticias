@@ -1,0 +1,166 @@
+html, body{
+
+    height: 100%;
+    margin: 0;
+
+}
+
+body{
+
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100%;
+
+}
+
+.encabezado{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 5px solid#ffcf00;
+    background-color: #FFFFFF;
+    flex-shrink: 1;
+    margin-bottom: 50px;
+    max-width: 100%;
+    min-width: 100%;
+
+}
+
+.imagen_encabezado{
+
+    margin-left: 5px;
+    scale: 75%;
+
+}
+
+.nav_encabezado{
+
+    display: flex;
+
+}
+
+.nav_encabezado_elementos{
+
+    padding: 10px;
+    margin: 5px;
+    margin-right: 15px;
+    color: #9799A6;
+    background-color: #FFF;
+    text-decoration: none;
+    transition: .5s;
+    display: block;
+
+    border: 1px solid #555555;
+    border-radius: 10px;
+
+}
+
+.nav_encabezado_elementos:hover{
+
+    background-color: #ffcf00;
+    color: #37474f;
+    border-color: #37474f;
+
+}
+
+.formulario{
+
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    width: auto;
+    border-radius: 15px;
+    flex-shrink: 12;
+    padding: 30px;
+
+}
+
+.elemento_formulario{
+
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.etiqueta_formulario{
+
+    padding: 15px;
+    display: inline-block;
+    font-size: 20px;
+    background-color: #ffcf00;
+    color: #37474f;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+
+}
+
+.cuerpo_formulario{
+
+    resize: vertical;
+    border: 1px solid #555555;
+
+}
+
+.boton_formulario{
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    color: #555555;
+    background-color:moccasin;
+    transition: 0.5s;
+    border: 1px solid #555555;
+
+}
+
+.boton_formulario:hover{
+
+    background-color: #ffcf00;
+    color: #37474f;
+    border-color: #37474f;
+
+}
+
+.boton_formulario:active{
+
+    transform: scale(0.95);
+
+}
+
+
+footer{
+
+    margin-top: 50px;
+    height: 75px;
+    min-height: 75px;
+    background-color: #ffcf00;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+}
+
+.texto_footer{
+
+    text-align: center;
+    color: #37474f;
+    font-size: x-large;
+
+}

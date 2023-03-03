@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <link rel="Stylesheet" href="/css/reset.css" type="text/css">
+    <link rel="Stylesheet" href="/css/ListarNoticiaStyle.css" type="text/css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Egg news</title>
+</head>
+
+<body>
+
+    <header class="encabezado">
+
+        <div class="imagen_encabezado">
+
+            <a href="/">
+                <img src="/img/download.png" alt="Logo De Egg">
+            </a>
+
+        </div>
+
+        <nav class="nav_encabezado">
+
+            <a class="nav_encabezado_elementos" href="/noticia/lista_noticias">Noticias</a>
+            <a class="nav_encabezado_elementos" href="/noticia/registrar">Agregar una noticia</a>
+
+        </nav>
+
+    </header>
+
+    <main class="contenido_principal">
+
+        <section class="mensaje_sin_noticias" th:if="${vacio != null}">
+
+            <p th:text="${vacio}"></p>
+
+        </section>
+
+        <table class="tabla" th:if="${vacio == null}">
+
+            <thead>
+
+                <tr class="fila_tabla_encabezado">
+
+                    <th class="elemento_tabla_encabezado"></th>
+                    <th class="elemento_tabla_encabezado">Titulo</th>
+                    <th class="elemento_tabla_encabezado">Cuerpo</th>
+                    <th class="elemento_tabla_encabezado"></th>
+                    <th class="elemento_tabla_encabezado"></th>
+
+                </tr>
+
+            <tbody>
+
+                <tr class="fila_tabla_cuerpo" th:each="noticia:${noticias}">
+
+                        <td class="elemento_tabla_cuerpo"><img class="thumbnail" th:src="@{'/img/'+${noticia.imagen}}">
+                        </td>
+                        <td  class="elemento_tabla_cuerpo"><a th:href="@{/noticia/__${noticia.id}__}" th:value="${noticia.id}" th:text="${noticia.titulo}"></a></td>
+                        <td class="elemento_tabla_cuerpo"><a th:href="@{/noticia/__${noticia.id}__}" th:text="${noticia.cuerpo}" th:value="${noticia.id}" > </a> </td>
+                        <td class="elemento_tabla_cuerpo"><a class="boton_eliminar_tabla_cuerpo"
+                                th:href="@{/noticia/eliminar/__${noticia.id}__}">Eliminar</a></td>
+                        <td class="elemento_tabla_cuerpo"><a class="boton_modificar_tabla_cuerpo"
+                                th:href="@{/noticia/modificar/__${noticia.id}__}">Modificar</a></td>
+
+            </tbody>
+
+            </thead>
+
+        </table>
+
+
+
+    </main>
+
+    <footer>
+
+        <p class="texto_footer">¡Gracias por usar nuestros servicios!</p>
+
+    </footer>
+
+</body>

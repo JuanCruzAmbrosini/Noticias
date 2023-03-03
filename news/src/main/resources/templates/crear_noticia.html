@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <link rel="Stylesheet" href="/css/reset.css" type="text/css">
+    <link rel="Stylesheet" href="/css/CrearNoticiaStyle.css" type="text/css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Egg news</title>
+</head>
+
+<body>
+
+    <header class="encabezado">
+
+        <div class="imagen_encabezado">
+
+            <a href="/">
+                <img src="/img/download.png" alt="Logo De Egg">
+            </a>
+
+        </div>
+
+        <nav class="nav_encabezado">
+
+            <a class="nav_encabezado_elementos" href="/noticia/lista_noticias">Noticias</a>
+            <a class="nav_encabezado_elementos" href="/noticia/registrar">Agregar una noticia</a>
+
+        </nav>
+
+    </header>
+
+    <form th:if="${noticia == null}" th:action="@{/noticia/registro}" method="post" class="formulario" enctype="multipart/form-data">
+
+        <div class="elemento_formulario">
+            <label class="etiqueta_formulario" for="titulo">Ingrese el título de la noticia aquí: </label>
+            <input class="cuerpo_formulario" name="titulo" type="text" placeholder="Título">
+        </div>
+
+        <div class="elemento_formulario">
+            <label class="etiqueta_formulario" for="cuerpo">Ingrese el cuerpo de la noticia aquí: </label>
+            <textarea class="cuerpo_formulario" name="cuerpo" rows="5" placeholder="Cuerpo"></textarea>
+        </div>
+
+        <div class="elemento_formulario">
+            <label class="etiqueta_formulario" for="imagen">Ingrese la imagen de la noticia aquí: </label>
+            <input class="cuerpo_formulario" type="file" name="file" placeholder="Imagen">
+        </div>
+
+        <button type="submit" class="boton_formulario">Enviar</button>
+
+    </form>
+
+    <form th:if="${noticia != null}" th:action="@{/noticia/modificacion/__${noticia.id}__}" method="POST" class="formulario" enctype="multipart/form-data">
+
+        <input hidden th:value="${noticia.id}" name="id">
+
+        <div class="elemento_formulario">
+            <label class="etiqueta_formulario" for="titulo">Ingrese el título de la noticia aquí: </label>
+            <input class="cuerpo_formulario" name="titulo" type="text" th:value="${noticia.titulo}">
+        </div>
+
+        <div class="elemento_formulario">
+            <label class="etiqueta_formulario" for="cuerpo">Ingrese el cuerpo de la noticia aquí: </label>
+            <textarea class="cuerpo_formulario" name="cuerpo" rows="5" th:field="${noticia.cuerpo}" ></textarea>
+        </div>
+
+        <div class="elemento_formulario">
+            <label class="etiqueta_formulario" for="imagen">Ingrese la imagen de la noticia aquí: </label>
+            <input class="cuerpo_formulario" type="file" name="file">
+            <input hidden th:value="${noticia.imagen}" name="nombreImagen">
+        </div>
+
+        <button type="submit" class="boton_formulario">Enviar</button>
+
+    </form>
+
+    <footer>
+
+        <p class="texto_footer">¡Gracias por usar nuestros servicios!</p>
+
+    </footer>
+
+</body>
+
+</html>
